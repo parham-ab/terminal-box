@@ -1,0 +1,34 @@
+{
+  "name": "terminal-box",
+  "version": "1.0.0",
+  "description": "A retro terminal-window React component with an optional typewriter effect.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.js --format cjs,esm --dts --external react && cp src/Terminal.css dist/Terminal.css"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "keywords": [
+    "react",
+    "terminal",
+    "loader",
+    "typewriter",
+    "component",
+    "status",
+    "ui",
+    "box",
+    "terminal-box"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/parham-ab/terminal-box"
+  }
+}
