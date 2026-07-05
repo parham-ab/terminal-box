@@ -22,8 +22,11 @@ npm install terminal-box
 
 ## Basic usage
 
+Import the component and its stylesheet — the CSS is shipped separately and must be imported once, anywhere in your app (e.g. your root `App.jsx` or `main.jsx`):
+
 ```jsx
 import Terminal from "terminal-box";
+import "terminal-box/dist/index.css";
 
 function App() {
   return <Terminal />;
@@ -32,20 +35,22 @@ function App() {
 
 This renders a terminal window with the default title `"Status"` and static text `"Loading..."`.
 
+> **Note:** the CSS import is only needed once per app, not once per component instance.
+
 ## Props reference
 
-| Prop             | Type                 | Default        | Description                                                                                                                                                                              |
-| ---------------- | -------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `title`          | `string`             | `"Status"`     | Text shown in the header bar, to the left of the control dots.                                                                                                                           |
-| `content`        | `string \| string[]` | `"Loading..."` | The message shown in the terminal body. Pass a single string for static or single-message typewriter mode, or an array of strings to cycle through multiple messages in typewriter mode. |
-| `containerStyle` | `object`             | `{}`           | Inline style object applied to the outer terminal container. Use this to override width, colors, fonts, etc.                                                                             |
-| `titleStyle`     | `object`             | `{}`           | Inline style object applied to the header title text.                                                                                                                                    |
-| `contentStyle`   | `object`             | `{}`           | Inline style object applied to the body text element.                                                                                                                                    |
-| `typewriter`     | `boolean`            | `false`        | When `true`, animates `content` as if it were being typed and deleted, character by character. When `false`, `content` renders as static text with no animation and no cursor.           |
-| `typingSpeed`    | `number`             | `70`           | Delay in milliseconds between each character being typed. Lower is faster.                                                                                                               |
-| `deletingSpeed`  | `number`             | `40`           | Delay in milliseconds between each character being deleted. Lower is faster.                                                                                                             |
-| `pause`          | `number`             | `1500`         | Delay in milliseconds the fully-typed message holds on screen before it starts deleting.                                                                                                 |
-| `loop`           | `boolean`            | `true`         | When `true`, the typewriter returns to the first message after finishing the last one. When `false`, it stops after typing the final message once.                                       |
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `title` | `string` | `"Status"` | Text shown in the header bar, to the left of the control dots. |
+| `content` | `string \| string[]` | `"Loading..."` | The message shown in the terminal body. Pass a single string for static or single-message typewriter mode, or an array of strings to cycle through multiple messages in typewriter mode. |
+| `containerStyle` | `object` | `{}` | Inline style object applied to the outer terminal container. Use this to override width, colors, fonts, etc. |
+| `titleStyle` | `object` | `{}` | Inline style object applied to the header title text. |
+| `contentStyle` | `object` | `{}` | Inline style object applied to the body text element. |
+| `typewriter` | `boolean` | `false` | When `true`, animates `content` as if it were being typed and deleted, character by character. When `false`, `content` renders as static text with no animation and no cursor. |
+| `typingSpeed` | `number` | `70` | Delay in milliseconds between each character being typed. Lower is faster. |
+| `deletingSpeed` | `number` | `40` | Delay in milliseconds between each character being deleted. Lower is faster. |
+| `pause` | `number` | `1500` | Delay in milliseconds the fully-typed message holds on screen before it starts deleting. |
+| `loop` | `boolean` | `true` | When `true`, the typewriter returns to the first message after finishing the last one. When `false`, it stops after typing the final message once. |
 
 ## Usage examples
 
@@ -58,7 +63,11 @@ This renders a terminal window with the default title `"Status"` and static text
 ### Typewriter with a single message
 
 ```jsx
-<Terminal title="Deploy" content="Deploying to production..." typewriter />
+<Terminal
+  title="Deploy"
+  content="Deploying to production..."
+  typewriter
+/>
 ```
 
 ### Typewriter cycling through multiple messages
@@ -81,7 +90,11 @@ This renders a terminal window with the default title `"Status"` and static text
 ### Typewriter that types once and stops (no loop)
 
 ```jsx
-<Terminal content={["Initializing...", "Ready."]} typewriter loop={false} />
+<Terminal
+  content={["Initializing...", "Ready."]}
+  typewriter
+  loop={false}
+/>
 ```
 
 ### Custom styling via style props
