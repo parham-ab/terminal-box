@@ -1,6 +1,6 @@
 {
   "name": "terminal-box",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A retro terminal-window React component with an optional typewriter effect.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
