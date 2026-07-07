@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.js --format cjs,esm --external react"
+    "build": "tsup"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -29,5 +29,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/parham-ab/terminal-box.git"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3"
   }
 }
